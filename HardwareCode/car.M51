@@ -1,0 +1,219 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        11/13/2019  08:04:02  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+E:\KEIL\C51\BIN\BL51.EXE main.obj TO car
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  main.obj (MAIN)
+  E:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  car (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0001H     UNIT         ?DT?MAIN
+            IDATA   0009H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     0020H                  *** GAP ***
+            CODE    0023H     0003H     ABSOLUTE     
+                    0026H     07DAH                  *** GAP ***
+            CODE    0800H     003BH     UNIT         ?PR?UARTINTERRUPT?MAIN
+            CODE    083BH     0024H     UNIT         ?PR?MAIN?MAIN
+            CODE    085FH     0016H     UNIT         ?PR?INITUART?MAIN
+            CODE    0875H     000CH     UNIT         ?C_C51STARTUP
+            CODE    0881H     0009H     UNIT         ?PR?STOP?MAIN
+            CODE    088AH     0005H     UNIT         ?PR?FORWARD?MAIN
+            CODE    088FH     0005H     UNIT         ?PR?BACK?MAIN
+            CODE    0894H     0005H     UNIT         ?PR?LEFT?MAIN
+            CODE    0899H     0005H     UNIT         ?PR?RIGHT?MAIN
+
+
+
+OVERLAY MAP OF MODULE:   car (MAIN)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?PR?UARTINTERRUPT?MAIN
+  +--> ?PR?STOP?MAIN
+  +--> ?PR?FORWARD?MAIN
+  +--> ?PR?BACK?MAIN
+  +--> ?PR?LEFT?MAIN
+  +--> ?PR?RIGHT?MAIN
+
+*** NEW ROOT ***************************************************
+
+?C_C51STARTUP
+  +--> ?PR?MAIN?MAIN
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/13/2019  08:04:02  PAGE 2
+
+
+?PR?MAIN?MAIN
+  +--> ?PR?INITUART?MAIN
+  +--> ?PR?FORWARD?MAIN
+
+
+
+SYMBOL TABLE OF MODULE:  car (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  B:0090H.3       PUBLIC        key4
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  B:00A8H.7       PUBLIC        EA
+  B:00A0H.0       PUBLIC        mo1
+  D:00A8H         PUBLIC        IE
+  B:00A0H.1       PUBLIC        mo2
+  B:00A0H.2       PUBLIC        mo3
+  D:0008H         PUBLIC        r_buf
+  B:00A0H.3       PUBLIC        mo4
+  C:0800H         PUBLIC        UARTInterrupt
+  C:088FH         PUBLIC        back
+  B:00A8H.4       PUBLIC        ES
+  D:00B8H         PUBLIC        IP
+  B:0098H.0       PUBLIC        RI
+  C:0899H         PUBLIC        right
+  C:083BH         PUBLIC        main
+  C:0894H         PUBLIC        left
+  D:0099H         PUBLIC        SBUF
+  D:0087H         PUBLIC        PCON
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  D:0088H         PUBLIC        TCON
+  C:0881H         PUBLIC        stop
+  D:008DH         PUBLIC        TH1
+  D:008BH         PUBLIC        TL1
+  C:085FH         PUBLIC        InitUART
+  B:0088H.6       PUBLIC        TR1
+  D:00C8H         PUBLIC        T2CON
+  C:088AH         PUBLIC        forward
+  D:00D0H         PUBLIC        PSW
+  B:0090H.0       PUBLIC        key1
+  B:0090H.1       PUBLIC        key2
+  B:0090H.2       PUBLIC        key3
+  -------         PROC          INITUART
+  C:085FH         LINE#         1
+  C:085FH         LINE#         2
+  C:085FH         LINE#         4
+  C:0862H         LINE#         5
+  C:0865H         LINE#         6
+  C:0868H         LINE#         7
+  C:086BH         LINE#         8
+  C:086EH         LINE#         9
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/13/2019  08:04:02  PAGE 3
+
+
+  C:0870H         LINE#         10
+  C:0872H         LINE#         11
+  C:0874H         LINE#         12
+  -------         ENDPROC       INITUART
+  -------         PROC          FORWARD
+  C:088AH         LINE#         6
+  C:088AH         LINE#         7
+  C:088CH         LINE#         8
+  C:088EH         LINE#         9
+  -------         ENDPROC       FORWARD
+  -------         PROC          BACK
+  C:088FH         LINE#         11
+  C:088FH         LINE#         12
+  C:0891H         LINE#         13
+  C:0893H         LINE#         14
+  -------         ENDPROC       BACK
+  -------         PROC          LEFT
+  C:0894H         LINE#         15
+  C:0894H         LINE#         16
+  C:0896H         LINE#         17
+  C:0898H         LINE#         18
+  -------         ENDPROC       LEFT
+  -------         PROC          RIGHT
+  C:0899H         LINE#         19
+  C:0899H         LINE#         20
+  C:089BH         LINE#         21
+  C:089DH         LINE#         22
+  -------         ENDPROC       RIGHT
+  -------         PROC          STOP
+  C:0881H         LINE#         23
+  C:0881H         LINE#         24
+  C:0883H         LINE#         25
+  C:0885H         LINE#         26
+  C:0887H         LINE#         27
+  C:0889H         LINE#         28
+  -------         ENDPROC       STOP
+  -------         PROC          MAIN
+  C:083BH         LINE#         26
+  C:083BH         LINE#         29
+  C:083EH         LINE#         31
+  C:083EH         LINE#         32
+  C:0841H         LINE#         34
+  C:0844H         LINE#         36
+  C:0844H         LINE#         37
+  C:0847H         LINE#         39
+  C:0849H         LINE#         40
+  C:084BH         LINE#         41
+  C:084DH         LINE#         42
+  C:084FH         LINE#         44
+  C:084FH         LINE#         45
+  C:0852H         LINE#         47
+  C:0854H         LINE#         48
+  C:0856H         LINE#         50
+  C:0856H         LINE#         51
+  C:0859H         LINE#         53
+  C:085BH         LINE#         54
+  C:085DH         LINE#         56
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/13/2019  08:04:02  PAGE 4
+
+
+  C:085DH         LINE#         58
+  -------         ENDPROC       MAIN
+  -------         PROC          UARTINTERRUPT
+  C:0800H         LINE#         63
+  C:0804H         LINE#         65
+  C:0807H         LINE#         66
+  C:0807H         LINE#         67
+  C:0809H         LINE#         69
+  C:080CH         LINE#         70
+  C:0811H         LINE#         71
+  C:0814H         LINE#         72
+  C:0814H         LINE#         73
+  C:0819H         LINE#         74
+  C:081CH         LINE#         75
+  C:081CH         LINE#         76
+  C:0821H         LINE#         77
+  C:0824H         LINE#         78
+  C:0824H         LINE#         79
+  C:0829H         LINE#         80
+  C:082CH         LINE#         81
+  C:082CH         LINE#         82
+  C:0831H         LINE#         83
+  C:0834H         LINE#         84
+  C:0834H         LINE#         94
+  C:0836H         LINE#         95
+  C:0836H         LINE#         96
+  -------         ENDPROC       UARTINTERRUPT
+  -------         ENDMOD        MAIN
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0095H BYTE ( 7%) *
+******************************************************************************
+
+Program Size: data=10.0 xdata=0 code=164
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
